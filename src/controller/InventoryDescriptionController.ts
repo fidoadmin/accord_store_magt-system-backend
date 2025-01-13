@@ -52,7 +52,7 @@ export class InventoryDescriptionController {
 
     async GetInventoryDescriptions(req, res) {
         try {
-           const page = req.query.Page ? req.query.Page : 0;
+               const page = req.query.Page ? req.query.Page : 0;
            const limit = req.query.Limit ? req.query.Limit : 0;
            const categoryId = req.query.CategoryId ? req.query.CategoryId : null;
            const pageOffSet = (page - 1) * limit;
