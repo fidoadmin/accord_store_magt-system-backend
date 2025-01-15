@@ -24,9 +24,9 @@ app.use(bodyParser.json());
 
 const corsOptions = {
   origin: [
-    "http://localhost:3000",
-    "http://10.10.1.119:3004",
-    "http://10.10.1.117:3000",
+    "http://localhost:3003",
+    "http://10.10.1.119:3003",
+   
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
