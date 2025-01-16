@@ -47,6 +47,12 @@ export class CategoryController {
             const categoryService = new CategoryService();
             const result = await categoryService.UpsertCategory(mappedCategory);
 
+            if(result[0].result == 'name duplicate'){
+                const commonService = new CommonService()
+                const result = await commonService.GetModelData(ErrorMessageModel, { statuscode: 4091 });
+                return res.status(409).json({error: result.errormessage});
+            };
+
             res.status(200).json({id:result[0].result});
 
         } catch (err) {
@@ -69,7 +75,7 @@ export class CategoryController {
             const categoryService = new CategoryService();
             let result  = await categoryService.DeleteCategory(categoryGuid);
              
-            if ( result[0].result == true){
+            if (result[0].result == true){
                 res.status(200).json();
             }else if ( result[0].result == false) {
                 const result = await commonService.GetModelData(ErrorMessageModel, { statuscode: 4098 });

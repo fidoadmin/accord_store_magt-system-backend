@@ -14,6 +14,7 @@ import { UserController } from "./controller/UserController";
 import { ClientController } from "./controller/ClientController";
 import { CompanyTypeController } from "./controller/CompanyTypeController";
 import { RoleController } from "./controller/RoleController";
+import { InventoryDescriptionController } from "./controller/InventoryDescriptionController";
 
 const sequelize = require("./connect/index");
 const app = express();
@@ -76,6 +77,9 @@ router.delete("/containers/:Id", auth, (req, res) =>  new ContainerController().
 router.get("/clients", auth, (req, res) =>  new ClientController().GetClients(req, res));
 router.post("/clients", auth, (req, res) =>  new ClientController().UpsertClient(req, res));
 
+router.get("/inventorydescriptions", auth, (req, res) =>  new InventoryDescriptionController().GetInventoryDescriptions(req, res));
+router.post("/inventorydescriptions", auth, (req, res) =>  new InventoryDescriptionController().UpsertInventoryDescription(req, res));
+router.delete("/inventorydescriptions/:Id", auth, (req, res) => new InventoryDescriptionController().DeleteInventoryDescription(req, res));
 
 
 router.post("/resetpassword", (req, res) =>  new PasswordChangeRequestController().AddPasswordChangeRequest(req, res));
