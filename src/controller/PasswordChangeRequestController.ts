@@ -11,6 +11,7 @@ import bcrypt from 'bcrypt';
 const commonService = new CommonService();
 
 export class PasswordChangeRequestController {
+    
     async AddPasswordChangeRequest(req, res) {
         try {
             const body = req.body;

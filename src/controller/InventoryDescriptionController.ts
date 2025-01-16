@@ -68,7 +68,7 @@ export class InventoryDescriptionController {
            
            const inventoryDescriptionService = new InventoryDescriptionService();
            const results = await inventoryDescriptionService.LoadInventoryDescriptions(varparams);
-           res.header("X-Page-TotalCount", results.length > 0 ? results[0].totalcount : 0);
+           res.header("X-Page-TotalCount", results.length > 0 ? results[0].total : 0);
           
            const inventoryDescriptionMapper = new InventoryDescriptionMapper();
            const mapped = inventoryDescriptionMapper.ModelToDto(results);
